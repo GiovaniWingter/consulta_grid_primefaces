@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body onload="#{hqController.init()}">
+        <ui:composition template="/template/modelo.xhtml">
+            
+            <ui:define name="menu">
+                    <nav>    
+                        <h4>Quadrinhos</h4>
+                        <h:form>
+                            
+                        <ul>
+                            <li class="active"><a href="#">Categorias</a>
+                                <ul>
+                                    <li><p:commandLink update=":frm:grade" actionListener="#{hqController.consultaCat('Terror')}" value="Terror" > </p:commandLink></li>
+                                    <li><p:commandLink update=":frm:grade" actionListener="#{hqController.consultaCat('Super heróis')}" value="Super-heróis" > </p:commandLink></li>
+                                    <li><p:commandLink update=":frm:grade" actionListener="#{hqController.consultaCat('Manga')}" value="Manga" > </p:commandLink></li>
+                                    <li><p:commandLink update=":frm:grade" actionListener="#{hqController.consultaCat('Comédia')}" value="Comédia" > </p:commandLink></li>
+                                    <li><p:commandLink update=":frm:grade" actionListener="#{hqController.consultaCat('Mitologia')}" value="Mitologia" > </p:commandLink></li>
+                                    <li><p:commandLink update=":frm:grade" actionListener="#{hqController.consultaCat('')}" value="Tudo" > </p:commandLink></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        </h:form>
+                    </nav>
+            </ui:define>
+            
+            <ui:define name="conteudo">
+                <h:form id="frm" style="width: 100%;height: 100%">
+                    <p:dataGrid var="hq" value="#{hqController.hqs}" columns="3" id="grade" 
+                        rows="6" paginator="true"  
+                        paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" >  
+
+                        <p:panel header="#{hq.hq}" style="text-align:center;width: 220px;">  
+                            <h:panelGrid columns="1" style="width:200px;">  
+                                <p:graphicImage value="resources/hq/#{hq.url}" style="width: 150px;margin-left: 20px;"/>   
+
+                                <h:outputText value="#{hq.categoria}" />  
+                                <h:outputText value="#{hq.preco}" />  
+
+
+                            </h:panelGrid>  
+                        </p:panel>  
+
+                    </p:dataGrid>
+            </h:form>
+            </ui:define>
+            
+        </ui:composition>
+    </h:body>
+</html>
+

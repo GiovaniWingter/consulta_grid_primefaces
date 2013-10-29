@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Paginação</title>
+        <link rel="stylesheet" href="resources/css/estilo.css" />
+    </h:head>
+    <h:body>
+        <div id="a">
+            <header>          
+                    <a href="index.jsf" title="Go to Homepage">Exemplo de <strong> Paginação</strong></a>
+                    <div id="logo">
+			<a href="#">HQ4all</a>
+                    </div>
+                    <p>Exemplo de<br /><br /> 
+                      <b style="text-align: center; width: 100%; display: block;">criação de paginação de
+                      </b><br /><br /><b style="text-align: right; width: 100%; display: block;">consultas em páginas JSF</b> </p>
+            </header>
+            <div id="b">
+                <aside>
+                    <ui:insert name="menu"></ui:insert>
+                </aside>   
+                    <article class='aGaleria'>
+                        <ui:insert name="conteudo"></ui:insert>
+                    </article>
+            </div>
+        <footer>
+            <ul class="icons">
+                <li><a href="#"><img src="resources/img/icon1.jpg" alt=""/>Facebook</a></li>
+                <li><a href="#"><img src="resources/img/icon2.jpg" alt=""/>Twitter</a></li>
+                <li><a href="#"><img src="resources/img/icon3.jpg" alt=""/>LinkedIn</a></li>
+            </ul>
+        </footer>            
+        </div>
+
+    </h:body>
+</html>
